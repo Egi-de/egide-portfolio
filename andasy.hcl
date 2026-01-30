@@ -1,14 +1,19 @@
 app_name = "egide-portfolio"
 
 app {
-  build {
-    context = "./portfolio-2026"
-    dockerfile = "Dockerfile"
-  }
+  port = 3000
 
-  env {
+  env = {
     NODE_ENV = "production"
   }
-  
-  port = 3000
+
+  compute {
+    cpu = 1
+    memory = 512
+    cpu_kind = "shared"
+  }
+
+  process {
+    name = "web"
+  }
 }
